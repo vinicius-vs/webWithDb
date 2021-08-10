@@ -1,0 +1,56 @@
+﻿@model IEnumerable<webDB.Models.Livros>
+
+@{
+    ViewBag.Title = "Read";
+}
+
+<h2>Read</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Autor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantidadeDePaginas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataDeLancamento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Autor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuantidadeDePaginas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataDeLancamento)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Update", new { id=item.Id}) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
